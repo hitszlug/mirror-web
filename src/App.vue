@@ -1,9 +1,10 @@
 <script lang="ts">
 import { ElContainer, ElHeader, ElFooter, ElMain, ElRow, ElCol, ElMenu, ElMenuItem, ElDivider } from 'element-plus/lib/components/index.js';
-import { RouterView, RouterLink } from 'vue-router';
+import { RouterView } from 'vue-router';
+import TheHeader from './components/TheHeader/TheHeader.vue';
 export default {
   components: {
-    ElContainer, ElHeader, ElFooter, ElMain, ElRow, ElCol, ElMenu, ElMenuItem, RouterView, RouterLink, ElDivider
+    ElContainer, ElHeader, ElFooter, ElMain, ElRow, ElCol, ElMenu, ElMenuItem, RouterView, ElDivider, TheHeader
   },
   data() {
     return {
@@ -15,30 +16,8 @@ export default {
 
 <template>
   <el-container>
-    <el-header align="center" class="header">
-      <el-row :gutter="20">
-        <el-col :span="8" align="center">
-          <router-link to="/" class="logo-container">
-            <img class="logo" src="./assets/osa.png" alt="" />
-            <div>
-              <h1>HITsz OSA Mirror</h1>
-            </div>
-          </router-link>
-        </el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8" align="center">
-          <nav class="nav-container">
-            <el-menu mode="horizontal" :default-active="activeIndex" :router="true">
-              <el-menu-item index="/">
-                Home
-              </el-menu-item>
-              <el-menu-item index="/news">
-                News
-              </el-menu-item>
-            </el-menu>
-          </nav>
-        </el-col>
-      </el-row>
+    <el-header height="60px" class="header-container">
+      <the-header></the-header>
     </el-header>
     <el-main>
       <router-view></router-view>
@@ -48,8 +27,9 @@ export default {
 </template>
 
 <style scoped>
-.header {
-  border-bottom: solid 1px var(--el-menu-border-color);
+
+.header-container {
+  border-bottom: solid 1px rgb(228, 231, 237);
 }
 
 .logo {
