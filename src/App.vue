@@ -15,7 +15,7 @@ export default {
 
 <template>
   <el-container>
-    <el-header height="80px" align="center">
+    <el-header align="center" class="header">
       <el-row :gutter="20">
         <el-col :span="8" align="center">
           <router-link to="/" class="logo-container">
@@ -48,6 +48,10 @@ export default {
 </template>
 
 <style scoped>
+.header {
+  border-bottom: solid 1px var(--el-menu-border-color);
+}
+
 .logo {
   width: 40px;
   height: 40px;

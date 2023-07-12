@@ -7,6 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    copy: typeof import('./src/components/MainPage/components/MirrorList copy.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDivider: typeof import('element-plus/es')['ElDivider']
@@ -17,7 +20,10 @@ declare module 'vue' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElMenuTem: typeof import('element-plus/es')['ElMenuTem']
     ElRow: typeof import('element-plus/es')['ElRow']
+    ElTableV2: typeof import('element-plus/es')['ElTableV2']
     MainPage: typeof import('./src/components/MainPage/MainPage.vue')['default']
+    MirrorList: typeof import('./src/components/MainPage/components/MirrorList.vue')['default']
+    NewsWidget: typeof import('./src/components/MainPage/components/NewsWidget.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheNews: typeof import('./src/components/News/TheNews.vue')['default']
