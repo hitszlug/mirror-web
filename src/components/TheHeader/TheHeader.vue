@@ -1,7 +1,6 @@
 <script lang="ts">
 import { RouterLink } from 'vue-router';
 import { ElMenu } from 'element-plus/lib/components/index.js';
-import './style/hamburger.css';
 export default {
     components: {
         RouterLink, ElMenu
@@ -44,6 +43,8 @@ export default {
 </template>
 
 <style scoped>
+@import url(./style/hamburger.css);
+
 .header {
     height: 60px;
     width: 100%;
