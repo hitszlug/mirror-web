@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElAutoResizer: typeof import('element-plus/es')['ElAutoResizer']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
@@ -20,6 +21,7 @@ declare module 'vue' {
     ElMenuTem: typeof import('element-plus/es')['ElMenuTem']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElTableV2: typeof import('element-plus/es')['ElTableV2']
+    ElTag: typeof import('element-plus/es')['ElTag']
     MainPage: typeof import('./src/components/MainPage/MainPage.vue')['default']
     MirrorList: typeof import('./src/components/MainPage/components/MirrorList.vue')['default']
     NewsWidget: typeof import('./src/components/MainPage/components/NewsWidget.vue')['default']
