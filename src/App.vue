@@ -16,22 +16,27 @@ export default {
 
 <template>
   <el-container>
-    <el-header height="60px" class="header-container">
+    <el-header height="60px" class="container header-container">
       <the-header></the-header>
     </el-header>
-    <el-main>
+    <el-main class="container main-container">
       <router-view></router-view>
     </el-main>
-    <el-footer></el-footer>
+    <el-footer class="container">
+      Footer
+    </el-footer>
   </el-container>
 </template>
 
 <style scoped>
 
+.container {
+  width: 100%;
+}
+
 .header-container {
   border-bottom: solid 1px rgb(228, 231, 237);
 }
-
 .logo {
   width: 40px;
   height: 40px;

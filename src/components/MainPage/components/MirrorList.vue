@@ -1,68 +1,27 @@
 <script lang="ts">
-import { ElCard, ElTableV2, ElAutoResizer, Column, ElTag } from 'element-plus/lib/components/index.js';
-import { h } from 'vue';
-// const columns = generateColumns();
-// const data = generateData(columns, 20);
+import { ElCard, ElTable, ElTableColumn, ElAutoResizer, ElTag } from 'element-plus/lib/components/index.js';
 
-let id = 0;
-const dataGenerator = () => (
+
+const data = Array.from({ length: 5 }).map(() => (
     {
-        id: `archlinux-${id++}`,
         name: "archlinux",
         status: "success",
         size: "100TB",
         lastUpdate: "Today",
         nextUpdate: "Tomorrow",
     }
-)
+));
 
-const columns: Column<any>[] = [
-    {
-        key: 'name',
-        title: 'Name',
-        dataKey: 'name',
-        width: 120,
-    },
-    {
-        key: 'status',
-        title: 'Status',
-        dataKey: 'status',
-        width: 100,
-        cellRenderer: ({ cellData: status }) => h(
-            ElTag,
-            { type: status, "disable-transitions": true },
-            status
-        )
-    },
-    {
-        key: 'size',
-        title: 'Size',
-        dataKey: 'size',
-        width: 120,
-    },
-    {
-        key: 'lastUpdate',
-        title: 'Last Update',
-        dataKey: 'lastUpdate',
-        width: 150,
-    },
-    {
-        key: 'nextUpdate',
-        title: 'Next Update',
-        dataKey: 'nextUpdate',
-        width: 150,
-    },
+console.log(data);
 
-]
 
 export default {
     components: {
-        ElCard, ElTableV2, ElAutoResizer, ElTag
+        ElCard, ElTable, ElAutoResizer, ElTag, ElTableColumn
     },
     data() {
         return {
-            columns,
-            data: Array.from({ length: 40 }).map(dataGenerator)
+            tableData: data,
         }
     }
 }
@@ -70,21 +29,22 @@ export default {
 
 
 <template>
-    <el-tag style="display: none;"></el-tag>
-    <el-card class="box-card">
+    <el-card>
         <template #header>
             <div class="card-header">
                 <h2>MirrorList</h2>
                 <el-button class="button" text>Operation button</el-button>
             </div>
         </template>
-        <div class="table-container">
-            <el-auto-resizer>
-                <template #default="{ height, width }">
-                    <el-table-v2 :columns="columns" :data="data" :height="height" :width="width" fixed />
-                </template>
-            </el-auto-resizer>
-        </div>
+        <template>
+            <el-table :data="tableData">
+                <el-table-column prop="name" label="Name" width="150" />
+                <el-table-column prop="status" label="Status" width="150" />
+                <el-table-column prop="size" label="size" width="150" />
+                <el-table-column prop="lastUpdate" label="lastUpdate" width="150" />
+                <el-table-column prop="nextUpdate" label="nextUpdate" width="150" />
+            </el-table>
+        </template>
     </el-card>
 </template>
 
@@ -94,21 +54,8 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
-
-.text {
-    font-size: 14px;
-}
-
-.item {
-    margin-bottom: 18px;
-}
-
-.box-card {
+.table {
     width: 100%;
-}
-
-.table-container {
-    height:900px;
-    width: 100%;
+    height: 100%;
 }
 </style>
