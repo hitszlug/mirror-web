@@ -2,7 +2,7 @@
 import { ElCard, ElTable, ElTableColumn, ElAutoResizer, ElTag } from 'element-plus/lib/components/index.js';
 
 
-const data = Array.from({ length: 50 }).map(() => (
+const data = Array.from({ length: 40 }).map(() => (
     {
         name: "archlinux",
         status: "success",

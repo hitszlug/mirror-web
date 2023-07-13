@@ -15,7 +15,8 @@ export default {
             <el-col :xs="24" :sm="13" :md="13" :lg="11">
                 <mirror-list class="container"></mirror-list>
             </el-col>
-            <el-col :xs="24" :sm="9" :md="7" :lg="6">
+            <el-col :xs="24" :sm="9" :md="9" :lg="6" class="right-col">
+                <news-widget></news-widget>
                 <news-widget></news-widget>
             </el-col>
         </el-row>
@@ -27,6 +28,12 @@ export default {
     gap: 20px;
     justify-content: center;
     height: 100%;
+}
+
+.right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media screen and (min-width: 992px) {
