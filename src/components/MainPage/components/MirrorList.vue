@@ -2,7 +2,7 @@
 import { ElCard, ElTable, ElTableColumn, ElAutoResizer, ElTag } from 'element-plus/lib/components/index.js';
 
 
-const data = Array.from({ length: 5 }).map(() => (
+const data = Array.from({ length: 50 }).map(() => (
     {
         name: "archlinux",
         status: "success",
@@ -36,13 +36,17 @@ export default {
                 <el-button class="button" text>Operation button</el-button>
             </div>
         </template>
-        <template>
+        <template #default>
             <el-table :data="tableData">
-                <el-table-column prop="name" label="Name" width="150" />
-                <el-table-column prop="status" label="Status" width="150" />
-                <el-table-column prop="size" label="size" width="150" />
-                <el-table-column prop="lastUpdate" label="lastUpdate" width="150" />
-                <el-table-column prop="nextUpdate" label="nextUpdate" width="150" />
+                <el-table-column prop="name" label="Name" width="100px" />
+                <el-table-column prop="status" label="Status" width="100px">
+                    <template #default="scope">
+                        <el-tag :disable-transitions="true">{{ scope.row.status }}</el-tag>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="lastUpdate" label="lastUpdate" width="120px" />
+                <el-table-column prop="nextUpdate" label="nextUpdate" width="120px" />
+                <el-table-column prop="size" label="size" />
             </el-table>
         </template>
     </el-card>
@@ -54,6 +58,7 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
+
 .table {
     width: 100%;
     height: 100%;

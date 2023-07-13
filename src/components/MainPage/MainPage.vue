@@ -12,10 +12,10 @@ export default {
 <template>
     <el-container direction="vertical">
         <el-row class="row-container">
-            <el-col :xs="24" :sm="15" :md="13" :lg="11">
+            <el-col :xs="24" :sm="13" :md="13" :lg="11">
                 <mirror-list class="container"></mirror-list>
             </el-col>
-            <el-col :xs="24" :sm="6" :md="6" :lg="6">
+            <el-col :xs="24" :sm="9" :md="7" :lg="6">
                 <news-widget></news-widget>
             </el-col>
         </el-row>
@@ -24,8 +24,14 @@ export default {
 
 <style scoped>
 .row-container {
-    gap: 40px;
+    gap: 20px;
     justify-content: center;
     height: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .row-container {
+        gap: 40px;
+    }
 }
 </style>
